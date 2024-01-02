@@ -17,10 +17,10 @@ def evaluate_calculation():
         text_result.delete(1.0, "end")
         text_result.insert(1.0, calculadora)
     except:
-        clear_field()
+        deletar()
         text_result.insert(1.0, "Error")
 
-def clear_field():
+def deletar():
     global calculadora
     calculadora = ""
     text_result.delete(1.0, "end")
@@ -30,6 +30,18 @@ root.geometry("300x275")
 text_result = tk.Text(root, height=2, width=16, font=("Arial", 24))
 text_result.grid(columnspan=5)
 
+bnt_limpa = tk.Button(root, text=str("C"), command=lambda:  deletar(), width=5, font=("Arial", 14))
+bnt_limpa.grid(row=1, column=1) 
+
+bnt_porcentagem = tk.Button(root, text=str("%"), command=lambda:  adicionar("%"), width=5, font=("Arial", 14))
+bnt_porcentagem.grid(row=1, column=2)
+
+bnt_raiz = tk.Button(root, text=str("√"), command=lambda:  adicionar("√"), width=5, font=("Arial", 14))
+bnt_raiz.grid(row=1, column=3)
+
+
+bnt_delete = tk.Button(root, text=str("⌫"), command=lambda:  deletar(), width=5, font=("Arial", 14))
+bnt_delete.grid(row=1, column=4)
 
 bnt_7 = tk.Button(root, text=str(7), command=lambda: adicionar(7), width=5, font=("Arial", 14))
 bnt_7.grid(row=2, column=1)
@@ -63,6 +75,21 @@ bnt_2.grid(row=4, column=2)
 
 bnt_3 = tk.Button(root, text=str(3), command=lambda: adicionar(3), width=5, font=("Arial", 14))
 bnt_3.grid(row=4, column=3)
+
+bnt_vezes = tk.Button(root, text=str("x"), command=lambda: adicionar("x"), width=5, font=("Arial", 14))
+bnt_vezes.grid(row=4, column=4)
+
+bnt_0= tk.Button(root, text=str(0), command=lambda: adicionar(0), width=5, font=("Arial", 14))
+bnt_0.grid(row=5, column=1)
+
+bnt_ponto= tk.Button(root, text=str("."), command=lambda: adicionar("."), width=5, font=("Arial", 14))
+bnt_ponto.grid(row=5, column=2)
+
+bnt_igual= tk.Button(root, text=str("="), command=lambda: adicionar("="), width=5, font=("Arial", 14))
+bnt_igual.grid(row=5, column=3)
+
+bnt_divisão= tk.Button(root, text=str("÷"), command=lambda: adicionar("÷"), width=5, font=("Arial", 14))
+bnt_divisão.grid(row=5, column=4)
 
 
 root.mainloop()
