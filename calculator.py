@@ -1,6 +1,14 @@
 import tkinter as tk
 
 calculadora = ""
+#Criando o Layout
+root = tk.Tk()
+root.geometry("300x275")
+root.title('Calculadora')
+text_result = tk.Text(root, height=2, width=16, font=("Arial", 24))
+text_result.grid(columnspan=5)
+
+#Criando as funções
 
 def adicionar(symbol):
     global calculadora
@@ -25,10 +33,7 @@ def deletar():
     calculadora = ""
     text_result.delete(1.0, "end")
 
-root = tk.Tk()
-root.geometry("300x275")
-text_result = tk.Text(root, height=2, width=16, font=("Arial", 24))
-text_result.grid(columnspan=5)
+
 
 bnt_limpa = tk.Button(root, text=str("C"), command=lambda:  deletar(), width=5, font=("Arial", 14))
 bnt_limpa.grid(row=1, column=1) 
